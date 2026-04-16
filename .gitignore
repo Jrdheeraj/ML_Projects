@@ -1,0 +1,5 @@
+﻿.venv/
+ml_project_template/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

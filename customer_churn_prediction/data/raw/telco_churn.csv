@@ -1,0 +1,21 @@
+tenure,MonthlyCharges,TotalCharges,Contract,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,PaymentMethod,PaperlessBilling,SeniorCitizen,Partner,Dependents,Churn
+1,29.85,29.85,Month-to-month,DSL,No,Yes,No,No,No,No,Electronic check,Yes,0,No,No,Yes
+34,56.95,1889.5,One year,DSL,Yes,No,Yes,No,No,No,Mailed check,No,0,Yes,No,No
+2,53.85,108.15,Month-to-month,Fiber optic,No,No,No,No,No,No,Electronic check,Yes,0,No,No,Yes
+45,42.30,1840.75,One year,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Bank transfer,No,0,Yes,Yes,No
+5,70.70,151.65,Month-to-month,Fiber optic,No,No,No,No,Yes,Yes,Electronic check,Yes,1,No,No,Yes
+62,99.65,6185.2,Two year,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Credit card,No,0,Yes,Yes,No
+20,89.10,1742.4,Month-to-month,Fiber optic,No,Yes,No,No,Yes,No,Electronic check,Yes,0,No,No,Yes
+15,24.95,380.6,Month-to-month,DSL,No,No,No,No,No,No,Mailed check,No,0,Yes,No,No
+8,54.20,443.7,Month-to-month,Fiber optic,No,No,Yes,No,No,Yes,Electronic check,Yes,1,No,No,Yes
+52,65.40,3412.8,Two year,DSL,Yes,Yes,Yes,Yes,No,No,Bank transfer,No,0,Yes,Yes,No
+11,73.45,806.0,Month-to-month,Fiber optic,No,Yes,No,No,Yes,Yes,Electronic check,Yes,0,No,No,Yes
+39,48.10,1904.9,One year,DSL,Yes,No,Yes,Yes,No,No,Credit card,No,0,Yes,No,No
+71,85.60,6087.2,Two year,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Bank transfer,No,0,Yes,Yes,No
+4,18.85,71.2,Month-to-month,No,No,No,No,No,No,No,Mailed check,Yes,1,No,No,Yes
+24,79.55,1908.4,Month-to-month,Fiber optic,No,Yes,No,No,Yes,No,Electronic check,Yes,0,Yes,No,Yes
+58,104.20,6038.1,Two year,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Credit card,No,0,Yes,Yes,No
+13,61.35,789.2,Month-to-month,DSL,No,Yes,No,No,No,No,Electronic check,Yes,0,No,No,Yes
+28,74.80,2073.4,Month-to-month,Fiber optic,No,No,Yes,No,Yes,Yes,Electronic check,Yes,0,Yes,No,Yes
+48,34.90,1671.6,One year,DSL,Yes,Yes,Yes,Yes,No,No,Bank transfer,No,0,Yes,Yes,No
+3,88.10,264.3,Month-to-month,Fiber optic,No,No,No,No,Yes,Yes,Electronic check,Yes,1,No,No,Yes
