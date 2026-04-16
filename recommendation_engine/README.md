@@ -1,107 +1,173 @@
 # Recommendation Engine
 
-Production-style recommendation system for movies/products using collaborative filtering, content-based ranking, and a hybrid recommender.
+### Hyper-Personalized Content Delivery with Hybrid Ranking Intelligence
 
-## Business Problem
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![ML](https://img.shields.io/badge/Machine%20Learning-Hybrid%20Recommender-orange)
+![FastAPI](https://img.shields.io/badge/FastAPI-Production%20API-009688?logo=fastapi)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Engineering-150458?logo=pandas)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-Modeling-f7931e?logo=scikitlearn)
+![Status](https://img.shields.io/badge/Status-Portfolio%20Ready-success)
 
-Suggest items to users based on historical behavior, similar users, and item similarity. The system is designed like a real production recommender: it supports cold start fallback, offline training, persisted artifacts, and a live API.
+## 🎯 Problem Statement
 
-## Architecture
+Digital platforms must recommend the right items in milliseconds while balancing personalization quality, cold-start reliability, and operational simplicity. Weak recommendation systems reduce engagement, session depth, and conversion.
+
+## 💡 Solution Overview
+
+This project implements a production-style hybrid recommendation platform that combines:
+
+- Collaborative filtering for behavioral similarity.
+- Content-based ranking using item semantics.
+- Popularity fallback to stabilize cold-start and sparse-user scenarios.
+
+It includes full training, evaluation, API serving, and an automated showcase pipeline that generates visuals and real sample recommendations for recruiter/demo workflows.
+
+## 🏗️ System Architecture / Workflow
 
 ```text
-recommendation_engine/
-  data/
-    raw/
-    processed/
-  notebooks/
-    eda.ipynb
-  src/
-    components/
-      data_loader.py
-      preprocessing.py
-      collaborative_filtering.py
-      content_based.py
-      hybrid_model.py
-      evaluation.py
-    pipelines/
-      training_pipeline.py
-      recommendation_pipeline.py
-    utils/
-      io_utils.py
-    config/
-      configuration.py
-    logger/
-      logging.py
-    exception/
-      custom_exception.py
-  models/
-  artifacts/
-  api/
-    main.py
-  tests/
+User-Item Interactions + Item Metadata
+                |
+                v
+Data Validation + Preprocessing (signal engineering)
+                |
+                v
+Hybrid Training (CF + Content + Popularity)
+                |
+                v
+Weight Tuning + Offline Evaluation (Precision@K, Recall@K, RMSE)
+                |
+                +--> Model & Metrics Artifacts
+                |
+                +--> FastAPI /recommend Endpoint
+                |
+                +--> Portfolio Showcase Generator (assets + output_samples)
 ```
 
-## ML Approach
+## ⚙️ Tech Stack
 
-1. Data ingestion for user-item interactions and item metadata.
-2. Data validation for schema consistency, null keys, and signal source checks.
-3. Preprocessing that blends explicit ratings with behavioral signals.
-4. Per-user chronological split for realistic offline evaluation.
-5. Collaborative filtering using user-user and item-item similarity.
-6. Content-based ranking using TF-IDF item embeddings.
-7. Hybrid model combining collaborative, content, and popularity signals.
-8. Offline hybrid weight tuning on a validation split.
-9. Evaluation with Precision@K, Recall@K, and RMSE.
-10. Cold start handling via popularity-based fallback and top-N controls.
+- Python 3.11
+- Pandas, NumPy
+- scikit-learn
+- Matplotlib, Seaborn
+- FastAPI, Pydantic, Uvicorn
+- Pytest
 
-## Production Enhancements
+## 📊 Key Features
 
-- Config-driven model and pipeline controls (`TOP_K_EVAL`, `MAX_TOP_N`, etc.).
-- Structured logging with API request timing and inference traces.
-- Inference caching in recommendation pipeline for repeated user requests.
-- Robust API validation via Pydantic constraints and response schema.
-- Expanded tests for cold start, seen-item filtering, and API behavior.
-- Persisted artifacts include metrics, tuned weights, and metadata.
+- Modular architecture with isolated components and pipelines.
+- Config-driven behavior for evaluation and serving constraints.
+- Inference caching for repeated requests.
+- Cold-start fallback via popularity priors.
+- Real-time API layer with strict request validation.
+- Fully automated portfolio artifact generation.
 
-### Environment Variables
+## 📈 Model Details
 
-- `INTERACTIONS_PATH`
-- `ITEMS_PATH`
-- `MODEL_PATH`
-- `METRICS_PATH`
-- `TOP_K_NEIGHBORS`
-- `TOP_K_EVAL`
-- `DEFAULT_TOP_N`
-- `MAX_TOP_N`
-- `CF_WEIGHT`
-- `CB_WEIGHT`
-- `POPULARITY_WEIGHT`
+Algorithms and signals:
 
-## Data Format
+- Collaborative filtering (behavior-driven relevance)
+- Content-based recommender (TF-IDF style semantic similarity)
+- Popularity prior (robust fallback)
+- Hybrid weighted aggregation
 
-Place these files in `data/raw/`:
+Latest real training/evaluation snapshot:
 
-- `interactions.csv`
-- `items.csv`
+- Precision@K: `0.1000`
+- Recall@K: `1.0000`
+- RMSE: `1.9470`
+- Hybrid weights: `cf=0.60`, `cb=0.30`, `pop=0.10`
+- Data sparsity (train matrix): `0.75`
+- Binary relevance ROC-AUC (diagnostic): `0.5417`
 
-Expected interactions columns:
+Special techniques:
 
-- `user_id`
-- `item_id`
-- `rating`
-- `interaction_type`
-- `timestamp`
+- Per-user chronological split for realistic offline validation.
+- Signal engineering from ratings + interaction types.
+- Weight strategy benchmarking and explainable signal contribution chart.
 
-Expected items columns:
+## 🖼️ Visual Outputs (Auto-Generated)
 
-- `item_id`
-- `title`
-- `genres`
-- `description`
+![EDA](assets/eda_distribution.png)
+![Correlation](assets/correlation_heatmap.png)
+![Model Performance](assets/model_comparison.png)
+![Confusion Matrix](assets/confusion_matrix.png)
+![ROC Curve](assets/roc_curve.png)
+![Feature Importance](assets/feature_importance.png)
+![API](assets/api_response.png)
 
-Sample data is included so the project runs out of the box.
+## 🔥 Live Predictions (Real Outputs)
 
-## Setup
+Generated from the trained model and stored in `artifacts/output_samples.json`.
+
+```json
+{
+  "input": {
+    "user_id": 109,
+    "top_n": 5
+  },
+  "output": {
+    "recommendations": ["i4", "i6", "i12", "i10", "i7"],
+    "recommendations_with_scores": [
+      {"item_id": "i4", "predicted_signal": 3.7837, "probability_like": 0.7567},
+      {"item_id": "i6", "predicted_signal": 3.5809, "probability_like": 0.7162}
+    ]
+  }
+}
+```
+
+```json
+{
+  "input": {
+    "user_id": 102,
+    "top_n": 5
+  },
+  "output": {
+    "recommendations": ["i11", "i12", "i10", "i8", "i4"],
+    "recommendations_with_scores": [
+      {"item_id": "i11", "predicted_signal": 3.5922, "probability_like": 0.7184},
+      {"item_id": "i12", "predicted_signal": 2.667, "probability_like": 0.5334}
+    ]
+  }
+}
+```
+
+## 🔌 API Usage
+
+Endpoint:
+
+- `POST /recommend`
+
+Run API:
+
+```bash
+uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+Request example:
+
+```json
+{
+  "user_id": 101,
+  "top_n": 5
+}
+```
+
+Response example:
+
+```json
+{
+  "recommendations": ["i6", "i9", "i2", "i11", "i1"]
+}
+```
+
+Health check:
+
+- `GET /health`
+
+## 🧪 How To Run
+
+Install dependencies:
 
 ```bash
 python -m venv .venv
@@ -109,62 +175,78 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## Train
+Train model:
 
 ```bash
 python -m src.pipelines.training_pipeline
 ```
 
-Artifacts generated:
-
-- `models/hybrid_recommender.joblib`
-- `artifacts/metrics.json`
-- `data/processed/interactions_processed.csv`
-- `data/processed/items_processed.csv`
-
-## Serve API
+Generate complete showcase assets + real outputs:
 
 ```bash
-uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+python -m src.pipelines.portfolio_showcase_pipeline
 ```
 
-## API Usage
-
-### Endpoint
-
-`POST /recommend`
-
-### Request
-
-```json
-{
-  "user_id": 101,
-  "top_n": 3
-}
-```
-
-### Response
-
-```json
-{
-  "recommendations": ["i6", "i9", "i2"]
-}
-```
-
-### Health Check
-
-`GET /health`
-
-## Notebook
-
-Open `notebooks/eda.ipynb` for:
-
-- User activity distribution
-- Popular item analysis
-- Sparsity analysis
-
-## Test
+Run tests:
 
 ```bash
 pytest -q
 ```
+
+## 📂 Project Structure
+
+```text
+recommendation_engine/
+  api/
+    main.py
+  assets/
+    eda_distribution.png
+    missing_values.png
+    correlation_heatmap.png
+    model_comparison.png
+    confusion_matrix.png
+    roc_curve.png
+    feature_importance.png
+    api_response.png
+  artifacts/
+    metrics.json
+    model_comparison.csv
+    binary_relevance_metrics.json
+    output_samples.json
+    showcase_assets_manifest.json
+  data/
+    raw/
+      interactions.csv
+      items.csv
+    processed/
+  models/
+    hybrid_recommender.joblib
+  notebooks/
+    eda.ipynb
+  src/
+    components/
+    config/
+    exception/
+    logger/
+    pipelines/
+    utils/
+  tests/
+```
+
+## 🌟 Why This Project Stands Out
+
+- Combines ranking quality and operational engineering in one deployable system.
+- Includes robust cold-start handling rather than assuming dense user history.
+- Uses artifact-first design for reproducibility and auditability.
+- Ships with API, tests, notebook, and automated visualization pipeline.
+
+## 🚀 Future Improvements
+
+- Session-based sequence models for temporal recommendation dynamics.
+- Online feedback loop and continuous retraining orchestration.
+- Feature store integration and near-real-time user embedding refresh.
+- Multi-objective ranking (engagement + diversity + novelty).
+
+## 👨‍💻 Author Branding
+
+Built as a production-minded ML portfolio system showcasing recommendation modeling, backend API design, and automated analytics storytelling.

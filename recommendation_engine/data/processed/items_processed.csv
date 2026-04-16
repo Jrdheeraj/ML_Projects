@@ -1,0 +1,13 @@
+item_id,title,genres,description,release_year,category,content_text
+i1,The Silent Harbor,Thriller|Drama,A small coastal town hides a dangerous secret,2021,movie,The Silent Harbor Thriller|Drama A small coastal town hides a dangerous secret movie
+i2,Skyline Shift,Sci-Fi|Adventure,A crew races to save a city above the clouds,2022,movie,Skyline Shift Sci-Fi|Adventure A crew races to save a city above the clouds movie
+i3,The Last Broadcast,Horror|Mystery,A late-night radio signal reveals a terrifying truth,2020,movie,The Last Broadcast Horror|Mystery A late-night radio signal reveals a terrifying truth movie
+i4,Coder's Oath,Drama|Tech,An engineer rebuilds a failing startup under pressure,2023,movie,Coder's Oath Drama|Tech An engineer rebuilds a failing startup under pressure movie
+i5,Garden of Echoes,Romance|Drama,Two strangers reconnect through a forgotten garden,2019,movie,Garden of Echoes Romance|Drama Two strangers reconnect through a forgotten garden movie
+i6,Circuit Breaker,Action|Thriller,A systems analyst stops a cyber attack at the last second,2024,movie,Circuit Breaker Action|Thriller A systems analyst stops a cyber attack at the last second movie
+i7,Midnight Library,Fantasy|Drama,Books begin rewriting the lives of their readers,2021,movie,Midnight Library Fantasy|Drama Books begin rewriting the lives of their readers movie
+i8,The Velocity Game,Sports|Drama,An underdog team fights toward an impossible championship,2022,movie,The Velocity Game Sports|Drama An underdog team fights toward an impossible championship movie
+i9,Orbit Zero,Sci-Fi|Thriller,A probe returns from deep space with an unknown signal,2024,movie,Orbit Zero Sci-Fi|Thriller A probe returns from deep space with an unknown signal movie
+i10,Paper City,Animation|Family,An imaginative child builds a city from paper and light,2018,movie,Paper City Animation|Family An imaginative child builds a city from paper and light movie
+i11,Hidden Signals,Documentary|Tech,Investigating how recommendation engines shape attention,2023,movie,Hidden Signals Documentary|Tech Investigating how recommendation engines shape attention movie
+i12,North Star,Comedy|Adventure,Three friends turn a road trip into a chaotic rescue mission,2020,movie,North Star Comedy|Adventure Three friends turn a road trip into a chaotic rescue mission movie
