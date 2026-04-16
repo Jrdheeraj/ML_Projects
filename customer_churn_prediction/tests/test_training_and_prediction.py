@@ -8,6 +8,7 @@ import pandas as pd
 from src.config.configuration import AppConfig
 from src.pipelines.prediction_pipeline import run_prediction_pipeline
 from src.pipelines.training_pipeline import run_training_pipeline
+from src.utils.io_utils import save_json
 
 
 def _synthetic_telco_df(n_rows: int = 200) -> pd.DataFrame:
@@ -70,6 +71,43 @@ def test_end_to_end_training_and_prediction(tmp_path: Path) -> None:
     assert Path(result["metrics_path"]).exists()
     assert "f1_score" in result["metrics"]
     assert "roc_auc" in result["metrics"]
+
+    sample = {
+        "tenure": 6,
+        "MonthlyCharges": 95.0,
+        "TotalCharges": 540.0,
+        "Contract": "Month-to-month",
+        "TechSupport": "No",
+        "InternetService": "Fiber optic",
+        "PaymentMethod": "Electronic check",
+    }
+    pred = run_prediction_pipeline(sample, config)
+    assert pred["churn"] in {"Yes", "No"}
+    assert 0.0 <= pred["probability"] <= 1.0
+
+
+def test_prediction_uses_model_schema_when_feature_schema_is_stale(tmp_path: Path) -> None:
+    project_root = tmp_path
+    raw_data_dir = project_root / "data" / "raw"
+    raw_data_dir.mkdir(parents=True, exist_ok=True)
+
+    data_path = raw_data_dir / "telco_churn.csv"
+    _synthetic_telco_df().to_csv(data_path, index=False)
+
+    config = AppConfig.from_env()
+    config.project_root = project_root
+    config.data.raw_data_path = data_path
+    config.data.train_data_path = project_root / "artifacts" / "train.csv"
+    config.data.test_data_path = project_root / "artifacts" / "test.csv"
+    config.model.model_output_path = project_root / "models" / "best_model.joblib"
+    config.model.metrics_output_path = project_root / "artifacts" / "metrics.json"
+    config.model.feature_schema_output_path = project_root / "artifacts" / "feature_schema.json"
+    config.log_dir = project_root / "artifacts" / "logs"
+    config.model.n_iter = 2
+    config.model.cv_folds = 3
+
+    run_training_pipeline(config)
+    save_json({"feature_columns": ["tenure", "MonthlyCharges"]}, config.model.feature_schema_output_path)
 
     sample = {
         "tenure": 6,

@@ -232,21 +232,3 @@ recommendation_engine/
     utils/
   tests/
 ```
-
-## 🌟 Why This Project Stands Out
-
-- Combines ranking quality and operational engineering in one deployable system.
-- Includes robust cold-start handling rather than assuming dense user history.
-- Uses artifact-first design for reproducibility and auditability.
-- Ships with API, tests, notebook, and automated visualization pipeline.
-
-## 🚀 Future Improvements
-
-- Session-based sequence models for temporal recommendation dynamics.
-- Online feedback loop and continuous retraining orchestration.
-- Feature store integration and near-real-time user embedding refresh.
-- Multi-objective ranking (engagement + diversity + novelty).
-
-## 👨‍💻 Author Branding
-
-Built as a production-minded ML portfolio system showcasing recommendation modeling, backend API design, and automated analytics storytelling.

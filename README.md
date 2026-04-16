@@ -148,32 +148,3 @@ python -m src.pipelines.portfolio_showcase_pipeline
 uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
----
-
-## 🌟 Why This Portfolio Stands Out
-
-- Production-level project design, not just notebook experiments
-- API-first ML systems with clean module boundaries
-- Real datasets, real outputs, and reproducible asset generation
-- Strong balance of model quality, software engineering, and presentation polish
-
----
-
-## 🚀 Future Goals
-
-- Cloud deployment on AWS and GCP
-- End-to-end MLOps workflows (CI/CD, model registry, monitoring)
-- Scalable inference services and feature-store integration
-- Expanded deep learning and LLM-powered product systems
-
----
-
-## 📬 Contact
-
-- GitHub: [Your GitHub](https://github.com/your-username)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/your-profile)
-- Email: [your.email@example.com](mailto:your.email@example.com)
-
----
-
-If you are hiring for ML engineering roles, this portfolio demonstrates practical, deployable, and business-aligned machine learning systems from data to API.

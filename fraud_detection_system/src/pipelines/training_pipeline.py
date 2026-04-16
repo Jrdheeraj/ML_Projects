@@ -5,8 +5,11 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from pathlib import Path
 
-import matplotlib.pyplot as plt
+import matplotlib
 import pandas as pd
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
 from src.components.data_ingestion import DataIngestion
 from src.components.model_evaluation import (

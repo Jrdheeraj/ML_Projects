@@ -261,20 +261,5 @@ customer_churn_prediction/
   tests/
 ```
 
-## 🌟 Why This Project Stands Out
 
-- True production pipeline shape: data, model, API, artifacts, and tests.
-- Real outputs and visuals generated directly from trained artifacts.
-- Strong engineering quality with modular design and configuration controls.
-- Presentation-ready storytelling suitable for recruiter and hiring-panel review.
 
-## 🚀 Future Improvements
-
-- Add drift monitoring and scheduled retraining workflow.
-- Introduce feature store and model registry integration.
-- Calibrate probabilities with Platt or isotonic calibration.
-- Add retention action simulation for business impact analysis.
-
-## 👨‍💻 Author Branding
-
-Built as a portfolio-grade ML product demo that combines predictive modeling, backend API engineering, and automated analytics storytelling for real business use cases.

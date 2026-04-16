@@ -267,20 +267,3 @@ fraud_detection_system/
   tests/
 ```
 
-## 🌟 Why This Project Stands Out
-
-- Production-minded design with modular architecture and strict validation.
-- Business-aware threshold optimization rather than naive default cutoff.
-- End-to-end automation that creates visuals, samples, and demo-ready artifacts.
-- API integration and tests that demonstrate deployable ML engineering quality.
-
-## 🚀 Future Improvements
-
-- Add drift monitoring and online feature store integration.
-- Introduce model registry with staged deployment workflow.
-- Add explainability dashboard with SHAP-based investigator views.
-- Integrate alerting hooks for real-time incident response.
-
-## 👨‍💻 Author Branding
-
-Built as a portfolio-grade ML product demo focused on real fraud operations, robust engineering patterns, and production API readiness.
